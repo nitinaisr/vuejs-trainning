@@ -1,28 +1,38 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <section class="section">
+      <div class="container">
+        <navbar></navbar>
+        <h1 class="title">App</h1>
+        <router-view></router-view>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import "bulma/css/bulma.min.css";
+import Navbar from "./components/Navbar";
 export default {
-  name: 'app',
+  // import อย่า่งเดียวยังใช้ไม่ได้ ต้องมีการ Register ด้วยการ ใช้ components
   components: {
-    HelloWorld
+    navbar: Navbar
+  },
+  head: {
+    title: { inner: "สวัสดีชาวโลก" },
+    link: [
+      {
+        href: "https://fonts.googleapis.com/css?family=Kanit&display=swap",
+        rel: "stylesheet"
+      }
+    ]
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+/* ใช้ font นี้ ทั้ง page */
+body {
+  font-family: "Kanit";
 }
 </style>
