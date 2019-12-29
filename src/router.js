@@ -5,6 +5,8 @@ import Form from "./views/Form";
 import Photo from "./views/Photo";
 import User from "./views/User";
 import UserProfile from "./views/UserProfile";
+import Search from "./views/Search";
+import Prob from "./views/Prob";
 import VueRouter from "vue-router";
 
 const routes = [
@@ -35,6 +37,14 @@ const routes = [
   {
     path: "/user/:id", // สิ่งนี้เรียกว่า parameter route
     component: UserProfile
+  },
+  {
+    path: "/search",
+    component: Search
+  },
+  {
+    path: "/prob",
+    component: Prob
   }
 ];
 

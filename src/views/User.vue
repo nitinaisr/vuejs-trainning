@@ -1,9 +1,11 @@
 <template>
   <div>
     <h1 class="title">User</h1>
-
     <p>
-      <button @click="getUser()" class="button is-primary">Get Users</button>
+      <!-- <button @click="getUser()" class="button is-primary">Get Users</button> -->
+      <button @click="getUser()" class="button is-primary">
+        Get Users
+      </button>
     </p>
     <pre>{{ users }}</pre>
 
@@ -59,17 +61,21 @@ export default {
         const res = await axios.get(
           "https://jsonplaceholder.typicode.com/users" //สามารถสั่ง limit รายการได้
         );
-        this.users = res.data;
+        // this.users = res.data;
+        this.updateUsers(res.data);
       } catch (e) {
         alert(e.message);
       }
 
       //   this.users = [1, 2, 3, 4, 5];
+    },
+    updateUsers(data) {
+      this.$store.commit("updateUsers", data);
     }
   },
   data() {
     return {
-      users: [],
+      // users: [],
       query: ""
     };
   },
@@ -80,6 +86,9 @@ export default {
       return this.users.filter(each => {
         return pattern.test(each.name) || pattern.test(each.address.street);
       }); //อะไรก็ตามที่เป็น arry สมารถเขียน filter ได้
+    },
+    users() {
+      return this.$store.state.users;
     }
   }
 };

@@ -6,7 +6,10 @@
 
     <nav class="navbar">
       <div class="navbar-brand">
-        <a @click="ToggleActive()" :class="'navbar-burger burger' + classHambergerMenu">
+        <a
+          @click="ToggleActive()"
+          :class="'navbar-burger burger' + classHambergerMenu"
+        >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -19,7 +22,8 @@
           :to="each.to"
           class="navbar-item"
           @click.native="ToggleActive()"
-        >{{each.text}}</router-link>
+          >{{ each.text }}</router-link
+        >
         <!-- <router-link to="/" class="navbar-item">Home</router-link>
         <router-link to="/about" class="navbar-item">About</router-link>
         <router-link to="/contact" class="navbar-item">Contact</router-link>
@@ -66,6 +70,14 @@ export default {
         {
           to: "/user",
           text: "User"
+        },
+        {
+          to: "/search",
+          text: "Search"
+        },
+        {
+          to: "/prob",
+          text: "Prob"
         }
       ]
     };
